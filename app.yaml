@@ -8,6 +8,7 @@ handlers:
 - url: .*
   script: qsorder-bot.app
 
-# libraries:
-# - name: qsorder_bot
-#   version: "2.5.2"
+libraries:
+ - name: beautifulsoup4
+ - name: pyTelegramBotAPI
+
