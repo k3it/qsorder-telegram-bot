@@ -6,6 +6,7 @@ import logging
 
 
 from bs4 import *
+from time import sleep
 import urllib.request
 import re
 
@@ -56,9 +57,9 @@ def search_global(call):
 
 @bot.message_handler(commands=['start', 'help', 'hello'])
 def handle_start(message):
-    bot.send_message(message.chat.id, message.from_user.first_name + 
-    	', welcome to the QSO audio search.  For more info visit [QSORDER website.](http://qsorder-k3it.rhcloud.com/) Enter a call sign to begin:',
-    	 parse_mode="Markdown") 
+	bot.send_message(message.chat.id, message.from_user.first_name + 
+		', welcome to the QSO audio search.  For more info visit [QSORDER website.](http://qsorder-k3it.rhcloud.com/) Enter a call sign to begin:',
+		 parse_mode="Markdown") 
 
 
 @bot.message_handler(regexp=".+_de_.+")
@@ -106,5 +107,10 @@ def process_Call(message):
 			
 
 if __name__ == '__main__':
-     bot.polling(none_stop=True)
+	while True:
+		try:
+			bot.polling(none_stop=True)
+		except:
+			print("bot exception. sleeping 10 sec")
+			sleep(10)
 
