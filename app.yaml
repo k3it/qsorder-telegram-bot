@@ -8,6 +8,8 @@ handlers:
 - url: .*
   script: qsorder-bot.app
 
-# libraries:
-# - name: qsorder_bot
-#   version: "2.5.2"
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: PIL
+  version: latest
